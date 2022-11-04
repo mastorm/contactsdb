@@ -1,3 +1,3 @@
-<div class="bg-slate-800 w-full min-h-screen text-slate-50">
+<div class="bg-black w-full min-h-screen text-white">
     <slot />
 </div>
