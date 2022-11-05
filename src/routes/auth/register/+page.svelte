@@ -1,11 +1,11 @@
-<h1 class="text-2xl">Register</h1>
+<script>
+	import { Button, Input } from '$lib';
+</script>
 
-<p>
-    Create an account so you too can enjoy the magic of contactdb - the demo app that does nothing special!
-</p>
+<h1 class="text-2xl pb-4 font-bold">Create a new Account</h1>
 
 <form class="grid gap-4">
-    <input type="email" name="email" />
-    <input type="password" name="password" />
-    <button class="p-3 uppercase bg-teal-600 font-bold rounded">Register</button>
+	<Input type="email" name="email" placeholder="jacob@example.com" label="E-Mail" />
+	<Input type="password" name="password" placeholder="***********" label="Password" />
+	<Button>Register</Button>
 </form>

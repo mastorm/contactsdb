@@ -1,7 +1,5 @@
-
 <main class="grid place-items-center place-content-center min-h-screen">
-    <div class="bg-gray-800 p-8 shadow-md rounded">
-        <slot />
-
-    </div>
+	<div class="border border-white rounded-md p-4">
+		<slot />
+	</div>
 </main>
