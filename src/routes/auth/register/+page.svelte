@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { enhance } from '$app/forms';
 	import { Button, Input } from '$lib';
 	import type { ActionData } from './$types';
 
@@ -6,10 +7,6 @@
 </script>
 
 <h1 class="text-2xl pb-4 font-bold">Create a new Account</h1>
-
-<pre>
-    {JSON.stringify(form, null, 2)}
-</pre>
 
 <form class="grid gap-4" method="post">
 	<Input type="email" name="email" placeholder="mathias@example.com" label="E-Mail" />
