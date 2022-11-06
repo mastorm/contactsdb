@@ -1,11 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { error } from '@sveltejs/kit';
 	export let name: string;
 	export let type: string;
 	export let label: string;
 	export let placeholder: string;
 
+	// this behaviour is VERY opinionated. maybe separate inputs from my specific form behaviour
 	$: myErrors = $page?.form?.errors?.[name] as { _errors: string[] } | undefined;
 	$: model = $page?.form?.model?.[name] ?? '';
 	$: hasErrors = myErrors && myErrors._errors.length > 0;
