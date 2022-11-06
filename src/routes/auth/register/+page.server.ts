@@ -2,24 +2,20 @@ import type { Actions } from '@sveltejs/kit';
 import { z } from 'zod';
 import { passwords } from '$lib/passwords.server';
 import { db } from '$lib/prisma.server';
+import { validateAction } from '$lib/validateAction';
+
+const loginSchema = z.object({
+	email: z.string().email('Needs to be a valid e-mail'),
+	password: z.string().min(8)
+});
 
 export const actions: Actions = {
 	default: async ({ request }) => {
-		const form = await request.formData();
+		const formData = await request.formData();
 
-		const formPayload = {
-			email: form.get('email'),
-			password: form.get('password')
-		};
-
-		const schema = z.object({
-			email: z.string().email('Needs to be a valid e-mail'),
-			password: z.string().min(8)
-		});
-
-		const result = await schema.safeParseAsync(formPayload);
+		const result = await validateAction({ formData, schema: loginSchema });
 		if (!result.success) {
-			return result.error.format();
+			return result.apiResponse;
 		}
 
 		const passwordHash = await passwords.hash(result.data.password);
