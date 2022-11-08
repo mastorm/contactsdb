@@ -1,8 +1,12 @@
 <script lang="ts">
-  import "../app.css";
-	import AppLayout from "./AppLayout.svelte";
+	import type { LayoutData } from './$types';
+	import '../app.css';
+	import AppLayout from './AppLayout.svelte';
+
+	export let data: LayoutData;
 </script>
 
 <AppLayout>
-  <slot />
+	{JSON.stringify(data)}
+	<slot />
 </AppLayout>
