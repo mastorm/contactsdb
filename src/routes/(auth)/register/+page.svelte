@@ -1,9 +1,5 @@
 <script lang="ts">
-	import { enhance } from '$app/forms';
-	import { Button, Input } from '$lib';
-	import type { ActionData } from './$types';
-
-	export let form: ActionData;
+	import { Button, Input } from '$lib/components';
 </script>
 
 <h1 class="text-2xl pb-4 font-bold">Create a new Account</h1>

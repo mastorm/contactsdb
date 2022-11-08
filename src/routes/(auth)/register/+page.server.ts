@@ -1,8 +1,8 @@
 import type { Actions } from '@sveltejs/kit';
 import { z } from 'zod';
-import { passwords } from '$lib/passwords.server';
-import { db } from '$lib/prisma.server';
-import { validateAction } from '$lib/validateAction';
+import { passwords } from '$lib/utils/passwords.server';
+import { db } from '$lib/app/prisma.server';
+import { validateAction } from '$lib/utils/validateAction';
 
 const loginSchema = z.object({
 	email: z.string().email('Needs to be a valid e-mail'),
